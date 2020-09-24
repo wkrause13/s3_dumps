@@ -12,7 +12,7 @@ setup(
     long_description='For more information visit: http://s3-dumps.readthedocs.io/en/latest/',
     author='Reck31',
     author_email='rakesh.gunduka@gmail.com',
-    url='https://github.com/rakeshgunduka/s3_dumps',
+    url='https://github.com/wkrause13/s3_dumps',
     license='MIT',
     include_package_data=True,
     install_requires=[
