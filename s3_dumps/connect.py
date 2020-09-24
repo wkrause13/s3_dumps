@@ -11,7 +11,7 @@ class s3Connect:
         access_key_id -- Access Key ID
         secret_access_key -- Secret Acces Key
         region -- bucket region (default is set to '')
-        service_name -- default is set to amazon (supported services - digitalocean and amazon)
+        service_name -- default is set to amazon (supported services - wasabi, digitalocean and amazon)
     """
 
     def __init__(self, access_key_id, secret_access_key, region='', service_name='amazon'):
@@ -22,6 +22,13 @@ class s3Connect:
 
         if service_name == 'amazon':
             aws_base_url = 'https://s3.amazonaws.com'
+            self.conn = boto3.resource('s3',
+                                       region_name=region,
+                                       endpoint_url=aws_base_url,
+                                       aws_access_key_id=access_key_id,
+                                       aws_secret_access_key=secret_access_key)
+        elif service_name == 'wasabi':
+            aws_base_url = 'https://s3.wasabisys.com'
             self.conn = boto3.resource('s3',
                                        region_name=region,
                                        endpoint_url=aws_base_url,
